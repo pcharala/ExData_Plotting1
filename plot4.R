@@ -1,5 +1,7 @@
-# load data file
-data <- read.csv('data_subset.csv',header=T)
+# load necessary subset of 'Household Power Consumption' data
+data <- read.table(file='household_power_consumption.txt',header=T,sep=";",quote="",na.strings="?")
+idx <- ((data$Date == '1/2/2007') | (data$Date == '2/2/2007'))
+data <- data[idx,]
 
 # open png device
 png(file='plot4.png', bg = 'transparent')
